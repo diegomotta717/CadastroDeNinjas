@@ -3,10 +3,10 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("missoes")
 public class MissoesController {
 
-    @GetMapping("/missoes")
+    @GetMapping("/boasvindas")
     public String missoes (){
         return  "Bem vindo às Missoes";
     }
@@ -21,7 +21,7 @@ public class MissoesController {
 
 
     //procurar missoes por id (read)
-    @GetMapping("/todasmissoesid")
+    @GetMapping("/listarid")
     public String mostrarMissaoPorId (){
         return "Missao ID mostrado";
     }
@@ -39,7 +39,7 @@ public class MissoesController {
 
 
     //mostrar todos as missoes (read)
-    @GetMapping ("/todas")
+    @GetMapping ("/listar")
     public String mostrarTodasAsMissoes(){
         return "todos as missoes mostradas";
     }
