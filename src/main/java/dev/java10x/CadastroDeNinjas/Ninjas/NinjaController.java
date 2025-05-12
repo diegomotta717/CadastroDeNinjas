@@ -19,10 +19,9 @@ public class NinjaController {
         return "Essa é minha primeira mensagem";
     }
         //adicionar ninja (create)
-
         @PostMapping("/criar")
-                public String criarNinja(){
-            return "Ninja criado";
+                public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+            return ninjaService.criarNinja(ninja);
 
         }
 
@@ -30,9 +29,9 @@ public class NinjaController {
 
         //procurar ninja por id (read)
 
-    @GetMapping("/listarid")
-    public String mostrarNinjasPorId (){
-            return "Ninja ID mostrado";
+    @GetMapping("/listar/{id}")
+    public NinjaModel mostrarNinjasPorId (@PathVariable Long id){
+            return ninjaService.listarNinjasPorId(id);
         }
 
         //deletar ninja (delete)
