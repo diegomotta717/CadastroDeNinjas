@@ -5,13 +5,17 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 //Entity transforma uma classe comum em uma entidade do BD
 @Entity
 @Table(name = "tb_cadastro")
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@ToString(exclude = "missoes")
+
+
 
 
 public class NinjaModel {
@@ -27,6 +31,8 @@ public class NinjaModel {
     private String email;
 
     private int idade;
+    private String RANK;
+    private String JUTSU;
 
     //@ManyToOne - um ninja tem uma única missao
     @ManyToOne

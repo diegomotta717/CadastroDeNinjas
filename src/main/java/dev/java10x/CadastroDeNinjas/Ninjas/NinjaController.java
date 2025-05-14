@@ -1,5 +1,11 @@
 package dev.java10x.CadastroDeNinjas.Ninjas;
-
+import io.swagger.v3.oas.annotations.OpenAPI31;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,9 +24,10 @@ public class NinjaController {
     public String boasVindas () {
         return "Essa é minha primeira mensagem";
     }
-        //adicionar ninja (create)
+
+    //adicionar ninja (create)
         @PostMapping("/criar")
-                public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+                public NinjaDTO criarNinja(@RequestBody NinjaDTO ninja){
             return ninjaService.criarNinja(ninja);
 
         }
@@ -30,7 +37,7 @@ public class NinjaController {
         //procurar ninja por id (read)
 
     @GetMapping("/listar/{id}")
-    public NinjaModel mostrarNinjasPorId (@PathVariable Long id){
+    public NinjaDTO mostrarNinjasPorId (@PathVariable Long id){
             return ninjaService.listarNinjasPorId(id);
         }
 
@@ -42,14 +49,14 @@ public class NinjaController {
 
         //alterar dados dos ninjas (update)
         @PutMapping("/alterar/{id}")
-        public NinjaModel alterarNinjaPorId(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado){
+        public NinjaDTO alterarNinjaPorId(@PathVariable Long id, @RequestBody NinjaDTO ninjaAtualizado){
         return ninjaService.atualizarNinja(id, ninjaAtualizado);}
 
 
 
         //mostrar todos os ninjas (read)
         @GetMapping ("/listar")
-        public List<NinjaModel> listarNinjas(){
+        public List<NinjaDTO> listarNinjas(){
             return ninjaService.listarNinjas();
         }
 
