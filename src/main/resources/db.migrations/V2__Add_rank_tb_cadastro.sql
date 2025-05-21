@@ -2,3 +2,4 @@
 
 ALTER TABLE tb_cadastro
 ADD COLUMN JUTSU VARCHAR(255);
+

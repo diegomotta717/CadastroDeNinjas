@@ -19,6 +19,7 @@ public class NinjaDTO {
     private String JUTSU;
     private String RANK;
     private MissoesModel missoes;
+    private String img;
 
 
 

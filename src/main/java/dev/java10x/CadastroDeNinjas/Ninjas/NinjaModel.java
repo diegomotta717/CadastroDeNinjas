@@ -33,6 +33,8 @@ public class NinjaModel {
     private int idade;
     private String RANK;
     private String JUTSU;
+    private String img;
+
 
     //@ManyToOne - um ninja tem uma única missao
     @ManyToOne
